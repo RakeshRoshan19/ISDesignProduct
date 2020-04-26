@@ -33,7 +33,7 @@ public class ControllerRest {
 		return services.showAll();
 	}
 	
-	@GetMapping("/category")
+	@GetMapping("/category/{pCategory}")
 	public List<ProductsDetails> categoryAll(@PathVariable("pCategory") String pCategory){
 		return services.categoryAll(pCategory);
 	}
