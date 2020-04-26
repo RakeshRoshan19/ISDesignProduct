@@ -27,6 +27,10 @@ public class Services {
 		return (List<ProductsDetails>) repository.findAll();
 	}
 	
+	public List<ProductsDetails> categoryAll(String pCategory){
+		return repository.findBypCategory(pCategory);
+	}
+	
 	public Optional<ProductsDetails> showId(String id) {
 		return repository.findById(id);
 	}

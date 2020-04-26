@@ -33,6 +33,11 @@ public class ControllerRest {
 		return services.showAll();
 	}
 	
+	@GetMapping("/category")
+	public List<ProductsDetails> categoryAll(@PathVariable("pCategory") String pCategory){
+		return services.categoryAll(pCategory);
+	}
+	
 	@GetMapping("/id/{id}")
 	public Optional<ProductsDetails> showId(@PathVariable("id") String id) {
 		return services.showId(id);
