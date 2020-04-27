@@ -3,6 +3,7 @@ package com.Rakesh.Products.services;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,10 @@ public class Services {
 	
 	public List<ProductsDetails> showAll(){
 		return (List<ProductsDetails>) repository.findAll();
+	}
+	
+	public List<ProductsDetails> searchAll(String word){
+		return repository.findBypNameContainingIgnoreCase(word);
 	}
 	
 	public List<ProductsDetails> categoryAll(String pCategory){

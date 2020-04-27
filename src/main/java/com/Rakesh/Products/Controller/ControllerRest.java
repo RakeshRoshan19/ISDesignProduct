@@ -27,6 +27,11 @@ public class ControllerRest {
 	public boolean addProducts(@RequestBody ProductsDetails pDetails) {
 		return services.addProducts(pDetails);
 	}
+	
+	@GetMapping("/search/{word}")
+	public List<ProductsDetails> searchAll(@PathVariable("word") String word){
+		return services.searchAll(word);
+	}
 
 	@GetMapping("/all")
 	public List<ProductsDetails> showAll(){
