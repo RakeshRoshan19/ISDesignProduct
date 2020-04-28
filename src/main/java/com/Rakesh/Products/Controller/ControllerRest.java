@@ -23,26 +23,31 @@ public class ControllerRest {
 	@Autowired
 	Services services;
 	
+	// Api to add new product in the product table
 	@PostMapping("/add")
 	public boolean addProducts(@RequestBody ProductsDetails pDetails) {
 		return services.addProducts(pDetails);
 	}
 	
+	// Api to search product with similar product name
 	@GetMapping("/search/{word}")
 	public List<ProductsDetails> searchAll(@PathVariable("word") String word){
 		return services.searchAll(word);
 	}
 
+	// Api to get details of all products (only for admin)
 	@GetMapping("/all")
 	public List<ProductsDetails> showAll(){
 		return services.showAll();
 	}
 	
+	// Api to get products based on their category
 	@GetMapping("/category/{pCategory}")
 	public List<ProductsDetails> categoryAll(@PathVariable("pCategory") String pCategory){
 		return services.categoryAll(pCategory);
 	}
 	
+	// Api to get a product details searched by its id
 	@GetMapping("/id/{id}")
 	public Optional<ProductsDetails> showId(@PathVariable("id") String id) {
 		return services.showId(id);
